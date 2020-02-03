@@ -43,10 +43,11 @@
 # nvm
 - shell:
     - [cd ~ && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash, Install nvm]
-    - [nvm use 10, Use Node 10]
+    - [nvm install 10 && nvm alias default 10, Use Node 10]
 
 # zsh
 - shell:
+    - [rm -rf ~/.oh-my-zsh, Remove old oh-my-zsh]
     - [cd ~ && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)", Installing oh-my-zsh]
     - [rm -rf ~/.zshrc, Remove stock zshrc]
 - link:

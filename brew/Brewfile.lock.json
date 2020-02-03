@@ -20,7 +20,7 @@
         "revision": "4062ab4a07b50713c2b88f1ea921ba418a02b51b"
       },
       "homebrew/core": {
-        "revision": "f43ea2b59c18d557bac3944cb98a717b510d5756"
+        "revision": "03e76d39ae55fbee7bf731cb0bbae702d156c330"
       },
       "homebrew/services": {
         "revision": "25563b1ea1cb850cfa11dbe21e1855ab025d7656"
@@ -1895,22 +1895,22 @@
         }
       },
       "vim": {
-        "version": "8.2.0150",
+        "version": "8.2.0200",
         "bottle": {
           "cellar": "/usr/local/Cellar",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0150.catalina.bottle.tar.gz",
-              "sha256": "0c132f82007b5eba0e26481a6c6d8b72d86008e8c0639e0c772da3ffe1c3a2a4"
+              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0200.catalina.bottle.tar.gz",
+              "sha256": "cf70a7dfe2cd79a2c70b71b826989d1525f345352177311b3efdd2c7d3e3bde7"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0150.mojave.bottle.tar.gz",
-              "sha256": "1075c70931571ddf64e208f47f4a2a99c6893a557bec1a9911a30c5ce1b20d7f"
+              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0200.mojave.bottle.tar.gz",
+              "sha256": "2ae924535b4b74c831b586f00547978e0c7afa1af71f203caaefd4e90551d88a"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0150.high_sierra.bottle.tar.gz",
-              "sha256": "984f2f18d365f71ac5a9089b56552326444edee749be9fab0f401450d79bf8ec"
+              "url": "https://homebrew.bintray.com/bottles/vim-8.2.0200.high_sierra.bottle.tar.gz",
+              "sha256": "b8cf0690810047454a3425f27ef7189219c2c8c59efca9712620a6ec33ae4ac1"
             }
           }
         },
@@ -2083,7 +2083,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "f43ea2b59c18d557bac3944cb98a717b510d5756",
+        "Homebrew/homebrew-core": "03e76d39ae55fbee7bf731cb0bbae702d156c330",
         "CLT": "11.3.1.0.1.1576735732",
         "Xcode": "11.3.1",
         "macOS": "10.15.3"
