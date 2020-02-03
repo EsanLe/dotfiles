@@ -54,3 +54,8 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # disable the creation of .DS_Store files for Mac users' folders 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+# vscode vim
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+defaults delete -g ApplePressAndHoldEnabled                                     
