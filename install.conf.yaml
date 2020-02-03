@@ -21,8 +21,10 @@
     ~/.tmux.conf.local: tmux/.tmux.conf.local
 - shell:
     - [pip install --user powerline-status, Installing Powerline]
-    - [rm -rf ~/.tmux/plugins/tpm, Uninstall old Tmux Plugin Manager]
-    - [git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm, Installing Tmux Plugin Manager and press prefix + I  to fetch the plugin]
+    - [rm -rf ~/.tmux/plugins/*, Uninstall old Tmux Plugin Manager]
+    - [git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm, Installing Tmux Plugin Manager]
+    - [git clone https://github.com/tmux-plugins/tmux-sensible ~/.tmux/plugins/tmux-sensible, Installing tmux-sensible]
+    - [git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/plugins/tmux-yank, Installing tmux-yank]
 
 # vim
 - shell:

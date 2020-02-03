@@ -20,10 +20,10 @@
         "revision": "4062ab4a07b50713c2b88f1ea921ba418a02b51b"
       },
       "homebrew/core": {
-        "revision": "9e66b9e8d4f206e98c66bccf871263cbacdedb55"
+        "revision": "f43ea2b59c18d557bac3944cb98a717b510d5756"
       },
       "homebrew/services": {
-        "revision": "f18aed908662863166956e0bc45c18df1bd84dc9"
+        "revision": "25563b1ea1cb850cfa11dbe21e1855ab025d7656"
       },
       "hudochenkov/sshpass": {
         "revision": "04cf50bd8e92d3c05de13ced8eb0f71c6db2f223"
@@ -55,6 +55,12 @@
         "version": "10.1.7",
         "options": {
           "full_name": "ableton-live-suite"
+        }
+      },
+      "android-platform-tools": {
+        "version": "29.0.5",
+        "options": {
+          "full_name": "android-platform-tools"
         }
       },
       "background-music": {
@@ -127,6 +133,12 @@
         "version": "0.7.3",
         "options": {
           "full_name": "rambox"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.41.1",
+        "options": {
+          "full_name": "visual-studio-code"
         }
       }
     },
@@ -1204,9 +1216,6 @@
               "sha256": "1cea9d8aaf17fbf16c3f7d9d62deff86ac66523cfe0c5d53f71d3b91043d2f15"
             }
           }
-        },
-        "options": {
-          "link": false
         }
       },
       "maven": {
@@ -1281,9 +1290,6 @@
               "sha256": "6d504b074ba0f45a868fc5be12a752f8fe84135dd3e8a00cd708c84ac7005ba4"
             }
           }
-        },
-        "options": {
-          "restart_service": true
         }
       },
       "node": {
@@ -1370,7 +1376,6 @@
           }
         },
         "options": {
-          "restart_service": true,
           "link": false
         }
       },
@@ -1447,9 +1452,6 @@
               "sha256": "cd9a919132c032f335f6c7bce15fc5a6abb24fbd56f7ee51884ea30aac710b67"
             }
           }
-        },
-        "options": {
-          "restart_service": true
         }
       },
       "proxychains-ng": {
@@ -1623,6 +1625,27 @@
           }
         }
       },
+      "scrcpy": {
+        "version": "1.12.1",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/scrcpy-1.12.1.catalina.bottle.tar.gz",
+              "sha256": "ed647f7c957cd996b62c395c2106be3e40d3dd0f8c84eb1bd1d2a212a174a565"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/scrcpy-1.12.1.mojave.bottle.tar.gz",
+              "sha256": "2ab289c10d23c6fb47bc9bd2ae1f04d6f7c9d35f41b14ee1b0f3b4ce8f0d1f48"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/scrcpy-1.12.1.high_sierra.bottle.tar.gz",
+              "sha256": "3a3f12e0c66d5b9e79096f3bc89480929703742f981209f734632e9aeda12166"
+            }
+          }
+        }
+      },
       "shadowsocks-libev": {
         "version": "3.3.4",
         "bottle": {
@@ -1684,9 +1707,6 @@
               "sha256": "a920686eea11ddb1d3f7fa2ac6a3cd12900e1f5eb181a3f920673e4076f60370"
             }
           }
-        },
-        "options": {
-          "restart_service": true
         }
       },
       "ssh-copy-id": {
@@ -2063,7 +2083,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9e66b9e8d4f206e98c66bccf871263cbacdedb55",
+        "Homebrew/homebrew-core": "f43ea2b59c18d557bac3944cb98a717b510d5756",
         "CLT": "11.3.1.0.1.1576735732",
         "Xcode": "11.3.1",
         "macOS": "10.15.3"
