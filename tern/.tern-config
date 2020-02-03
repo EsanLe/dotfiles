@@ -1,0 +1,25 @@
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser",
+    "jquery",
+    "ecmascript",
+    "chai",
+    "ecma6"
+  ],
+  "plugins": {
+    "complete_strings": {
+      "maxLength": 15
+    },
+    "node": {},
+    "es_modules": {},
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": true
+    },
+    "modules": {},
+    "jsx": {},
+    "react": {}
+  }
+}
+

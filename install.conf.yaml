@@ -1,0 +1,50 @@
+# pre process 
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+# dotfiles
+- link:
+    ~/.dotfiles: ''
+
+# brew
+- shell:
+    - [cd ./brew && ./install, Homebrew bundle]
+
+# tmux
+- link:
+    ~/.tmux: tmux/.tmux
+    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux/.tmux.conf.local
+- shell:
+    - [pip install --user powerline-status, Installing Powerline]
+    - [rm -rf ~/.tmux/plugins/tpm, Uninstall old Tmux Plugin Manager]
+    - [git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm, Installing Tmux Plugin Manager and press prefix + I  to fetch the plugin]
+
+# vim
+- shell:
+    - [curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh, Installing spf13]
+    - [rm -rf ~/.vimrc.local, Remove stock vimrc.local]
+- link:
+    ~/.gvimrc.local: vim/.gvimrc.local
+    ~/.vimrc.before.local: vim/.vimrc.before.local
+    ~/.vimrc.bundles.local: vim/.vimrc.bundles.local
+    ~/.vimrc.local: vim/.vimrc.local
+    ~/.config/nvim/init.vim: vim/init.vim
+- shell:
+    - [vim +PluginInstall +qall, Installing vundle plugins]
+    - [cd ./vim && ./install, Post installing vundle plugins]
+
+# zsh
+- shell:
+    - [sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)", Installing oh-my-zsh]
+    - [rm -rf ~/.zshrc, Remove stock zshrc]
+- link:
+    ~/.zshrc: zsh/.zshrc
+
+# post process 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]

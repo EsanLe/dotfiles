@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# name     : proxychains with ss proxy
+# license  : GPL
+# created  : 2016 Jul 01
+# modified : 2016 Jul 02
+#
+
+if [[ `uname` == 'Darwin' ]]; then
+  proxychains4 -f /usr/local/Cellar/proxychains-ng/4.11/etc/proxychains.conf "$@"
+fi
+
+if [[ `uname` == 'Linux' ]]; then
+  proxychains4 -f /etc/proxychains.conf "$@"
+fi
+
+exit 0

@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# name     : proxychains with ss proxy
+# license  : GPL
+# created  : 2016 Jul 01
+# modified : 2016 Jul 02
+#
+
+proxychains4 -f ~/bin/avpn.conf "$@"
+
+

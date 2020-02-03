@@ -1,0 +1,344 @@
+" Get OS name
+let s:uname = system("uname -s")
+
+" Color and themes
+if match(s:uname, "Darwin") == 0
+  "syntax enable
+  let g:solarized_termcolors=16
+  set background=dark
+  let g:solarized_visibility = "high"
+  let g:solarized_contrast = "high"
+  colorscheme solarized
+  let g:airline_theme = 'powerlineish'
+elseif match(s:uname, "Linux") == 0
+  "syntax enable
+  let g:solarized_termcolors=16
+  color solarized
+  let g:airline_theme = 'powerlineish'
+  " syntax enable
+  " set background=dark
+  " colorscheme solarized
+endif
+
+" Configure airline interface
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_section_b = '%-0.30{getcwd()}'
+let g:airline_section_c = '%t'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" Dont save .swp file
+set nobackup
+
+" Automatically use the system clipboard for copy and paste.
+" Now useless for new version of vim
+"set clipboard=unnamedplus
+
+" Enables mouse in all modes to scroll in tmux
+set mouse=a
+
+" Highlight all search matches
+:set hlsearch
+
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" search for visually selected text
+vnoremap // y/<C-R>"
+
+" Using standard editor shortcuts in Vim
+set nu
+:map <C-a> GVgg
+":map <C-n> :enew
+:map <C-o> :e . <Enter>
+:map <C-s> :w <Enter>
+":map <C-c> y
+:ino <C-c> <Esc>
+:map <C-v> p
+:map <C-x> <Delete>
+:map <C-z> u
+":map <C-t> :tabnew <Enter>
+:map <C-i> >>
+:map <C-q> :q! <Enter>
+:map <C-w> :bp <BAR> bd! #<Enter>
+":map <C-f> /
+:map <F3> n
+:map <C-H> :%s/
+:map <S-t> vat
+:map <S-T> vit
+:map <S-{> vi{
+:map <S-(> vi(
+:map <S-[> vi[
+
+" NerdTree config
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=0
+
+" NerdTree-tabs config
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_new_tab=1
+" autocmd BufWinEnter * NERDTreeFind
+" autocmd BufWinEnter * L
+
+" table mode
+let g:table_mode_corner='|'
+
+" Tab two spaces
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+autocmd FileType html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+autocmd FileType css setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+autocmd FileType less setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+autocmd FileType java setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
+autocmd FileType xml setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
+autocmd FileType objc setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
+autocmd FileType markdown setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+
+" Tab navigation like Firefox.
+nnoremap <C-S-tab> :bprevious<CR>
+nnoremap <C-tab>   :bnext<CR>
+nnoremap <C-t>     :enew<CR>
+inoremap <C-S-tab> <Esc>:bprevious<CR>i
+inoremap <C-tab>   <Esc>:bnext<CR>i
+inoremap <C-t>     <Esc>:enew<CR>
+
+
+" !WORKAROUND! Switch tab with ctrl + j or k cause its not support in tmux
+nnoremap <C-j> :bprevious<CR>
+" nnoremap <C-k> :bnext <CR>
+nnoremap <C-l> :bnext<CR>
+
+" CtrlSF config
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_confirm_save = 0
+
+" 默认忽略 node_modules
+let g:ctrlsf_ignore_dir = ["node_modules", "bower_components", "dist"]
+
+" delete without yanking
+nnoremap d "_d
+vnoremap d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap p "_dP
+
+" Mappings to move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" previm for preview mardown
+let g:previm_open_cmd = 'open '
+
+" should markdown preview get shown automatically upon opening markdown buffer
+" let g:livedown_autorun = 1
+
+" should the browser window pop-up upon previewing
+" let g:livedown_open = 1
+
+"##### auto fcitx  ###########
+" Vim InsertLeave event doesn't occur when using CTRL-C instead of ESC
+":ino <C-C> <Esc>
+
+"let g:input_toggle = 1
+"function! Fcitx2en()
+   "let s:input_status = system("fcitx-remote")
+   "if s:input_status == 2
+      "let g:input_toggle = 1
+      "let l:a = system("fcitx-remote -c")
+   "endif
+"endfunction
+
+"function! Fcitx2zh()
+   "let s:input_status = system("fcitx-remote")
+   "if s:input_status != 2 && g:input_toggle == 1
+      "let l:a = system("fcitx-remote -o")
+      "let g:input_toggle = 0
+   "endif
+"endfunction
+
+"set timeoutlen=500
+"autocmd InsertLeave * call Fcitx2en()
+"autocmd InsertEnter * call Fcitx2zh()
+"##### auto fcitx end ######
+
+" Remove ctrl + space
+imap <Nul> <Space>
+map  <Nul> <Nop>
+vmap <Nul> <Nop>
+cmap <Nul> <Nop>
+nmap <Nul> <Nop>
+
+" Shift + jkhl will go one window left, etc.
+nmap <S-h> :wincmd h<CR>
+nmap <S-j> :wincmd j<CR>
+nmap <S-k> :wincmd k<CR>
+nmap <S-l> :wincmd l<CR>
+
+" pangloss/vim-javascript configuration
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=indent
+:set foldmethod=indent
+
+" Fix iterm2
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=utf-8,gbk,ucs-bom,latin1
+endif
+
+" vim-jodoc
+let g:jsdoc_enable_es6 = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint_d'
+let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_typescript_eslint_exe = 'eslint_d'
+let g:syntastic_typescriptreact_checkers = ['eslint']
+let g:syntastic_typescriptreact_eslint_exe = 'eslint_d'
+let g:syntastic_loc_list_height = 4
+
+" jsx
+"let g:jsx_ext_required = 0
+
+" Android
+if match(s:uname, "Darwin") == 0
+  let g:android_sdk_path = system("brew --prefix android-sdk")
+elseif match(s:uname, "Linux") == 0
+endif
+
+" YCM
+"let g:ycm_filepath_completion_use_working_dir = 0
+"let g:ycm_auto_trigger = 1
+"let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_semantic_triggers =  {
+  "\   'c' : ['->', '.'],
+  "\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  "\             're!\[.*\]\s'],
+  "\   'ocaml' : ['.', '#'],
+  "\   'cpp,objcpp' : ['->', '.', '::'],
+  "\   'perl' : ['->'],
+  "\   'php' : ['->', '::'],
+  "\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['re!\[._a-zA-Z ]+\s'],
+  "\   'ruby' : ['.', '::'],
+  "\   'lua' : ['.', ':'],
+  "\   'erlang' : [':'],
+  "\ }
+"let g:UltiSnipsExpandTrigger = "<nop>"
+"inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+
+" java
+" autocmd FileType java set omnifunc=javacomplete#Complete
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+autocmd FileType java set omnifunc=intellivim#core#lang#CodeComplete
+autocmd FileType java setlocal omnifunc=intellivim#core#lang#CodeComplete
+
+" ctrlp
+let g:ctrlp_map = '<M-P>'
+let g:ctrlp_mruf_case_sensitive = 0
+let g:ctrlp_key_loop=1
+nmap <C-p> :CtrlPMixed<CR>
+
+" Reload
+set autoread
+au CursorHold * checktime
+
+" Objective-c configuration
+autocmd FileType objc :set foldmethod=indent
+autocmd FileType objc :setlocal foldmethod=indent
+
+" NERDTree git support
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+" Long line
+set synmaxcol=999
+
+" vim closetag
+let g:closetag_filenames = "*.htm,*,js,*.html,*.xhtml,*.phtml, *.md, *.jsx, *xml"
+
+" layredraw
+:set cursorline!
+:set lazyredraw
+
+" appx
+au BufRead,BufNewFile *.acss set filetype=css
+au BufRead,BufNewFile *.axml set filetype=html
+
+" disable swapfile
+set noswapfile
+
+" multiple-cursors
+let g:multi_cursor_quit_key='<c-c>'
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" devicons
+let g:DevIconsEnableFoldersOpenClose = 1

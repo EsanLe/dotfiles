@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -av --partial --progress --exclude "node_modules" --rsh="ssh -p 26309" root@23.106.144.133:/root/rsync/${PWD##*/} $(pwd)/../ --delete

@@ -1,0 +1,5 @@
+" 语义分析补全
+"let g:spf13_bundle_groups=['general', 'writing', 'youcompleteme', 'programming', 'php', 'ruby', 'python', 'javascript', 'ihtml', 'misc']
+
+" 无补全
+let g:spf13_bundle_groups=['general', 'writing', 'programming', 'php', 'ruby', 'python', 'javascript', 'ihtml', 'misc']

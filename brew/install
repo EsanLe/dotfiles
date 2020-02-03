@@ -1,0 +1,2 @@
+brew cask install keka jdownloader adoptopenjd/Users/eddie/Projects/dotfiles/install.conf.yamlk google-chrome ableton-live-suite intellij-idea-ce iterm2 dingtalk chromium background-music insomnia baiduinput rambox deluge android-platform-tools visual-studio-code
+brew bundle
