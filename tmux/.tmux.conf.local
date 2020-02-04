@@ -386,3 +386,7 @@ unbind C-z
 setw -g automatic-rename on
 setw -g automatic-rename-format "#{pane_current_path}"
 bind-key M split-window -h "vim ~/.tmux.conf"
+
+# Shift arrow to switch windows
+bind -n S-Left  previous-window
+bind -n S-Right next-window
