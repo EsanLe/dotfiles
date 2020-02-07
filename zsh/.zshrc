@@ -143,4 +143,9 @@ tmux
 source ~/.zprofile
 
 alias vim="nvim"
+alias notes="cd ~/Notes && nvim"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
