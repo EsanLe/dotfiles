@@ -1,0 +1,5 @@
+# npm package
+npm install nativefier -g
+
+# applist
+nativefier -n "JSON Editor"  "https://jsoneditoronline.org"

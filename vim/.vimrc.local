@@ -24,7 +24,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_section_b = '%-0.30{getcwd()}'
 let g:airline_section_c = '%t'
 
@@ -47,9 +47,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+" let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" let g:airline_symbols.linenr = ''
 
 " Dont save .swp file
 set nobackup
@@ -84,7 +84,7 @@ set nu
 ":map <C-t> :tabnew <Enter>
 :map <C-i> >>
 :map <C-q> :q! <Enter>
-:map <C-w> :bp <BAR> bd! #<Enter>
+:map <C-w> :bp! <BAR> bd! #<Enter>
 ":map <C-f> /
 :map <F3> n
 :map <C-H> :%s/
@@ -315,18 +315,21 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " Long line
-set synmaxcol=999
+set synmaxcol=120
 
 " vim closetag
 let g:closetag_filenames = "*.htm,*,js,*.html,*.xhtml,*.phtml, *.md, *.jsx, *xml"
 
 " layredraw
-:set cursorline!
-:set lazyredraw
+set cursorline!
+set lazyredraw
 
 " appx
 au BufRead,BufNewFile *.acss set filetype=css
 au BufRead,BufNewFile *.axml set filetype=html
+
+" mardown
+au BufRead,BufNewFile *.md PrevimOpen
 
 " disable swapfile
 set noswapfile
@@ -342,3 +345,9 @@ let g:NERDSpaceDelims = 1
 
 " devicons
 let g:DevIconsEnableFoldersOpenClose = 1
+
+" slow
+set nospell
+
+" previm
+let g:previm_plantuml_imageprefix = 'http://plantuml.com/plantuml/svg/'

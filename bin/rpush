@@ -1,3 +1,12 @@
 #!/bin/sh
-
-rsync -av --partial --progress --exclude "node_modules" --rsh="ssh -p 26309" $(pwd) root@23.106.144.133:/root/rsync  --delete
+while [ 1 ]
+do
+    rsync -av --partial --progress --exclude "node_modules" --rsh="ssh -p 6010" $(pwd) eddie@67.230.161.165:/mnt/d/rsync  --delete
+    if [ "$?" = "0" ] ; then
+        echo "rsync completed normally"
+        exit
+    else
+        echo "Rsync failure. Backing off and retrying..."
+        sleep 180
+    fi
+done

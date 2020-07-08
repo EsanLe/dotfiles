@@ -9,11 +9,11 @@ Plugin 'previm/previm'
 Plugin 'shime/vim-livedown'
 
 " Vim fcitx
-if match(s:uname, "Darwin") == 0
-  Plugin 'CodeFalling/fcitx-vim-osx'
-elseif match(s:uname, "Linux") == 0
-  Bundle 'vim-scripts/fcitx.vim'
-endif
+" if match(s:uname, "Darwin") == 0
+  " Plugin 'CodeFalling/fcitx-vim-osx'
+" elseif match(s:uname, "Linux") == 0
+  " Bundle 'vim-scripts/fcitx.vim'
+" endif
 
 " Generate JSDoc to your JavaScript code.
 Bundle 'heavenshell/vim-jsdoc'
@@ -78,6 +78,7 @@ Plugin 'will133/vim-dirdiff'
 
 " deoplete
 Plugin 'Shougo/deoplete.nvim'
+" Plugin 'neoclide/coc.nvim'
 
 " dbext.vim
 Plugin 'vim-scripts/dbext.vim'
@@ -93,3 +94,6 @@ Plugin 'leafgarland/typescript-vim'
 
 " vim-todo-lists 
 Plugin 'aserebryakov/vim-todo-lists'
+
+" vm
+Plugin 'vim-scripts/velocity.vim'

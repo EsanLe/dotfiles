@@ -1,3 +1,0 @@
-#!/bin/sh
-
-rsync -av --partial --progress --exclude "node_modules" --rsh="ssh -p 26309" $(pwd) root@104.224.181.190:/root/rsync  --delete
