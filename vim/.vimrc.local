@@ -3,12 +3,16 @@ let s:uname = system("uname -s")
 
 " Color and themes
 if match(s:uname, "Darwin") == 0
-  "syntax enable
-  let g:solarized_termcolors=16
+  syntax enable
+  syntax on
+  set termguicolors
+  " let g:solarized_termcolors=16
   set background=dark
-  let g:solarized_visibility = "high"
-  let g:solarized_contrast = "high"
-  colorscheme solarized
+  " let g:solarized_visibility = "high"
+  " let g:solarized_contrast = "high"
+  colorscheme sublimemonokai
+  let g:sublimemonokai_gui_italic = 1
+  let g:sublimemonokai_term_italic = 1
   let g:airline_theme = 'powerlineish'
 elseif match(s:uname, "Linux") == 0
   "syntax enable
@@ -47,9 +51,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = ''
 
 " Dont save .swp file
 set nobackup
@@ -103,8 +107,23 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_new_tab=1
-" autocmd BufWinEnter * NERDTreeFind
-" autocmd BufWinEnter * L
+
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 
 " table mode
 let g:table_mode_corner='|'
@@ -166,13 +185,16 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " previm for preview mardown
-let g:previm_open_cmd = 'open '
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+let g:previm_enable_realtime = 1
+let g:previm_show_header = 0
+let g:previm_plantuml_imageprefix = 'http://plantuml.com/plantuml/svg/'
 
 " should markdown preview get shown automatically upon opening markdown buffer
-" let g:livedown_autorun = 1
+let g:livedown_autorun = 1
 
 " should the browser window pop-up upon previewing
-" let g:livedown_open = 1
+let g:livedown_open = 0
 
 "##### auto fcitx  ###########
 " Vim InsertLeave event doesn't occur when using CTRL-C instead of ESC
@@ -258,39 +280,11 @@ if match(s:uname, "Darwin") == 0
 elseif match(s:uname, "Linux") == 0
 endif
 
-" YCM
-"let g:ycm_filepath_completion_use_working_dir = 0
-"let g:ycm_auto_trigger = 1
-"let g:ycm_min_num_of_chars_for_completion = 2
-"let g:ycm_semantic_triggers =  {
-  "\   'c' : ['->', '.'],
-  "\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  "\             're!\[.*\]\s'],
-  "\   'ocaml' : ['.', '#'],
-  "\   'cpp,objcpp' : ['->', '.', '::'],
-  "\   'perl' : ['->'],
-  "\   'php' : ['->', '::'],
-  "\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['re!\[._a-zA-Z ]+\s'],
-  "\   'ruby' : ['.', '::'],
-  "\   'lua' : ['.', ':'],
-  "\   'erlang' : [':'],
-  "\ }
-"let g:UltiSnipsExpandTrigger = "<nop>"
-"inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" : "\<CR>"
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-"nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-
-" java
-" autocmd FileType java set omnifunc=javacomplete#Complete
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-autocmd FileType java set omnifunc=intellivim#core#lang#CodeComplete
-autocmd FileType java setlocal omnifunc=intellivim#core#lang#CodeComplete
-
 " ctrlp
 let g:ctrlp_map = '<M-P>'
 let g:ctrlp_mruf_case_sensitive = 0
 let g:ctrlp_key_loop=1
+let g:ctrlp_working_path_mode = 'ra'
 nmap <C-p> :CtrlPMixed<CR>
 
 " Reload
@@ -302,7 +296,7 @@ autocmd FileType objc :set foldmethod=indent
 autocmd FileType objc :setlocal foldmethod=indent
 
 " NERDTree git support
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -323,13 +317,11 @@ let g:closetag_filenames = "*.htm,*,js,*.html,*.xhtml,*.phtml, *.md, *.jsx, *xml
 " layredraw
 set cursorline!
 set lazyredraw
+set ttyfast
 
 " appx
 au BufRead,BufNewFile *.acss set filetype=css
 au BufRead,BufNewFile *.axml set filetype=html
-
-" mardown
-au BufRead,BufNewFile *.md PrevimOpen
 
 " disable swapfile
 set noswapfile
@@ -349,5 +341,11 @@ let g:DevIconsEnableFoldersOpenClose = 1
 " slow
 set nospell
 
-" previm
-let g:previm_plantuml_imageprefix = 'http://plantuml.com/plantuml/svg/'
+" https://github.com/yuttie/comfortable-motion.vim
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
+
+" longline
+" autocmd FileType mediawiki,tex,md,markdown LongLines

@@ -1,5 +1,8 @@
 # npm package
-npm install nativefier -g
+# npm install nativefier -g
 
 # applist
-nativefier -n "JSON Editor"  "https://jsoneditoronline.org"
+cd /tmp/
+nativefier -n "JSON Editor" "https://jsoneditoronline.org"
+nativefier -n "Java Escape/Unescape" "https://codebeautify.org/java-escape-unescape"
+open /tmp/
