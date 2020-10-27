@@ -19,7 +19,7 @@ Plugin 'shime/vim-livedown'
 " Bundle 'heavenshell/vim-jsdoc'
 
 " Js formater
-" Plugin 'maksimr/vim-jsbeautify'
+Plugin 'maksimr/vim-jsbeautify'
 
 " editorconfig
 " Plugin 'editorconfig/editorconfig-vim'
@@ -55,7 +55,7 @@ Plugin 'vim-scripts/Toggle-NERDTree-width'
 " Plugin 'aklt/plantuml-syntax'
 
 " VIM Table Mode
-" Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " HTML {
     " if count(g:spf13_bundle_groups, 'ihtml')
@@ -96,7 +96,7 @@ Plugin 'Shougo/deoplete.nvim'
 " Plugin 'aserebryakov/vim-todo-lists'
 
 " vm
-" Plugin 'vim-scripts/velocity.vim'
+Plugin 'vim-scripts/velocity.vim'
 
 " scroll
 Plugin 'yuttie/comfortable-motion.vim'
@@ -106,7 +106,7 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 
 " Comrade
-" Plugin 'beeender/Comrade'
+Plugin 'beeender/Comrade'
 
 " longline
-" Plugin 'manu-mannattil/vim-longlines'
+Plugin 'manu-mannattil/vim-longlines'

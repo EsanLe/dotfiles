@@ -191,10 +191,13 @@ let g:previm_show_header = 0
 let g:previm_plantuml_imageprefix = 'http://plantuml.com/plantuml/svg/'
 
 " should markdown preview get shown automatically upon opening markdown buffer
-let g:livedown_autorun = 1
+let g:livedown_autorun = 0
 
 " should the browser window pop-up upon previewing
-let g:livedown_open = 0
+let g:livedown_open = 1
+
+nmap gm :LivedownPreview<CR>
+" let g:livedown_browser = "safari"
 
 "##### auto fcitx  ###########
 " Vim InsertLeave event doesn't occur when using CTRL-C instead of ESC
@@ -270,6 +273,10 @@ let g:syntastic_typescript_eslint_exe = 'eslint_d'
 let g:syntastic_typescriptreact_checkers = ['eslint']
 let g:syntastic_typescriptreact_eslint_exe = 'eslint_d'
 let g:syntastic_loc_list_height = 4
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby", "php", "javascript", "html"],
+    \ "passive_filetypes": ["java"] }
 
 " jsx
 "let g:jsx_ext_required = 0
@@ -342,10 +349,10 @@ let g:DevIconsEnableFoldersOpenClose = 1
 set nospell
 
 " https://github.com/yuttie/comfortable-motion.vim
-let g:comfortable_motion_scroll_down_key = "j"
-let g:comfortable_motion_scroll_up_key = "k"
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
+" let g:comfortable_motion_scroll_down_key = "j"
+" let g:comfortable_motion_scroll_up_key = "k"
+" noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
+" noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
 
 " longline
 " autocmd FileType mediawiki,tex,md,markdown LongLines

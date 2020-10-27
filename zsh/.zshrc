@@ -142,8 +142,8 @@ function watchNotes(){
 tmux
 source ~/.zprofile
 
-alias vim="nvim"
-alias notes="cd ~/Notes && nvim"
+alias vim="nice -9 nvim"
+alias notes="cd ~/Notes && nice -9 nvim"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # jenv
