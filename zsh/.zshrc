@@ -113,8 +113,8 @@ if [[ `uname` == 'Darwin' ]] then
   # eval "$(rbenv init -)"
 
   # nvm
-  # export NVM_DIR="$HOME/.nvm"
-  # \. "$NVM_DIR/nvm.sh" # This loads nvm
+  export NVM_DIR="$HOME/.nvm"
+  \. "$NVM_DIR/nvm.sh" # This loads nvm
 fi
 
 # Android development
