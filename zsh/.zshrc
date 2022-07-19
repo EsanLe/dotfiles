@@ -112,7 +112,7 @@ if [[ `uname` == 'Darwin' ]] then
   export LANG=en_US.UTF-8
 
   # rbenv
-  eval "$(rbenv init -)"
+  # eval "$(rbenv init -)"
 
   # nvm
   export NVM_DIR="$HOME/.nvm"
@@ -131,23 +131,19 @@ function androidrun(){
 
 alias markright="open -a /Applications/MarkRight.app"
 
-# Watch and push ~/notes/
-function watchNotes(){
-  while true;
-  do
-    sleep 2
-    cd ~/notes/
-      git add . --all &> /dev/null ; git commit -m "dummy" &> /dev/null; git push
-  done
-}
-
-tmux
+# tmux
 source ~/.zprofile
 
 alias vim="nice -9 nvim"
 alias notes="cd ~/Notes && nice -9 nvim"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# echo 1 & [ -s "$NVM_DIR/bash_completion" ] & \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
+
+# KeyRepeat
+defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)

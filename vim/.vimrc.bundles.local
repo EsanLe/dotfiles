@@ -81,7 +81,7 @@ Plugin 'Shougo/deoplete.nvim'
 " Plugin 'neoclide/coc.nvim'
 
 " dbext.vim
-" Plugin 'vim-scripts/dbext.vim'
+Plugin 'vim-scripts/dbext.vim'
 
 " marp
 " Plugin 'dhruvasagar/vim-marp'
@@ -99,7 +99,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'vim-scripts/velocity.vim'
 
 " scroll
-Plugin 'yuttie/comfortable-motion.vim'
+" Plugin 'yuttie/comfortable-motion.vim'
 
 " monokai
 " Plugin 'crusoexia/vim-monokai'
@@ -110,3 +110,6 @@ Plugin 'beeender/Comrade'
 
 " longline
 Plugin 'manu-mannattil/vim-longlines'
+
+" sql
+Plugin 'SQLUtilities'
