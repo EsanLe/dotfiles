@@ -55,6 +55,8 @@ plugins=(git)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+#
+export PATH=$(pyenv root)/shims:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
