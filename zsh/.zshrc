@@ -134,6 +134,10 @@ source ~/.zprofile
 if [ "$IS_KITTY_TERMINAL" = "true" ] && [ -z "$TMUX" ]; then
   tmux -L "$(date +%s)$RANDOM"
 fi
+if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ] && [ -z "$TMUX" ]; then
+  tmux -L "$(date +%s)$RANDOM"
+fi
+
 
 alias vim="nice -9 nvim"
 alias notes="cd ~/Notes && nice -9 nvim"
@@ -149,4 +153,7 @@ eval "$(jenv init -)"
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
+defaults write com.apple.Finder AppleShowAllFiles true
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
