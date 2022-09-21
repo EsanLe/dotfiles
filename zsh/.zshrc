@@ -56,7 +56,7 @@ plugins=(git)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 #
-export PATH=$(pyenv root)/shims:$PATH
+# export PATH=$(pyenv root)/shims:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,10 +129,11 @@ function androidrun(){
   adb shell am start -n $1/$1.$2
 }
 
-alias markright="open -a /Applications/MarkRight.app"
-
 # tmux
 source ~/.zprofile
+if [ "$IS_KITTY_TERMINAL" = "true" ] && [ -z "$TMUX" ]; then
+  tmux -L "$(date +%s)$RANDOM"
+fi
 
 alias vim="nice -9 nvim"
 alias notes="cd ~/Notes && nice -9 nvim"
@@ -147,3 +148,5 @@ eval "$(jenv init -)"
 # KeyRepeat
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
