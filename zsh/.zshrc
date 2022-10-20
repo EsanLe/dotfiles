@@ -131,6 +131,9 @@ function androidrun(){
 
 # tmux
 source ~/.zprofile
+if [ -z "$TMUX" ]; then
+  tmux -L "$(date +%s)$RANDOM"
+fi
 if [ "$IS_KITTY_TERMINAL" = "true" ] && [ -z "$TMUX" ]; then
   tmux -L "$(date +%s)$RANDOM"
 fi

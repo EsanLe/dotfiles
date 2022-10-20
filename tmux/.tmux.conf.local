@@ -310,8 +310,8 @@ bind c new-window -c "#{pane_current_path}"
 # Powerline
 if-shell "uname | grep -q Darwin" \
   'source ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf'
-if-shell "uname | grep -q Linux" \
-  'source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf'
+# if-shell "uname | grep -q Linux" \
+#  'source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf'
 
 # Mouse Events
 #set -g mode-mouse on
@@ -345,20 +345,9 @@ bind-key & kill-window
 # copy-mode 将快捷键设置为vi 模式
 setw -g mode-keys vi
 bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+# bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
 
-# List of plugins
-# set -g @plugin 'tmux-plugins/tpm'
-# set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'tmux-plugins/tmux-yank'
 
-# Other examples:
-# set -g @plugin 'github_username/plugin_name'
-# set -g @plugin 'git@github.com/user/plugin'
-# set -g @plugin 'git@bitbucket.com/user/plugin'
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-# run '~/.tmux/plugins/tpm/tpm'
 
 # bind n next-window
 # bind p previous-window
@@ -392,3 +381,9 @@ bind-key M split-window -h "vim ~/.tmux.conf"
 # Shift arrow to switch windows
 bind -n S-Left  previous-window
 bind -n S-Right next-window
+
+# https://github.com/tmux-plugins/tmux-yank/issues/115
+# if-shell "uname | grep -q Linux" \
+# set -s set-clipboard on
+# set -s set-clipboard external
+set -s set-clipboard off
