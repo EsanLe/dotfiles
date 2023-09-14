@@ -103,27 +103,27 @@ let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=0
 
 " NerdTree-tabs config
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+" map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_new_tab=1
 
 " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
+" function! IsNERDTreeOpen()        
+  " return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
+" function! SyncTree()
+  " if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    " NERDTreeFind
+    " wincmd p
+  " endif
+" endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+" autocmd BufEnter * call SyncTree()
 
 " table mode
 let g:table_mode_corner='|'
@@ -283,10 +283,10 @@ let g:syntastic_mode_map = {
 "let g:jsx_ext_required = 0
 
 " Android
-if match(s:uname, "Darwin") == 0
-  let g:android_sdk_path = system("brew --prefix android-sdk")
-elseif match(s:uname, "Linux") == 0
-endif
+" if match(s:uname, "Darwin") == 0
+  " let g:android_sdk_path = system("brew --prefix android-sdk")
+" elseif match(s:uname, "Linux") == 0
+" endif
 
 " ctrlp
 let g:ctrlp_map = '<M-P>'
@@ -357,3 +357,5 @@ set nospell
 
 " longline
 " autocmd FileType mediawiki,tex,md,markdown LongLines
+
+let g:autoformat_autoindent = 2

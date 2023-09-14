@@ -150,10 +150,20 @@ eval "$(jenv init -)"
 # export PATH="$VOLTA_HOME/bin:$PATH"
 
 # KeyRepeat
-defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+defaults write -g InitialKeyRepeat -int 9 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.apple.Accessibility KeyRepeatEnabled -bool false
 defaults write com.apple.Finder AppleShowAllFiles true
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
 defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
+
+# zprofile
+source ~/.zprofile
+
+# rust
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+source $HOME/.cargo/env
+

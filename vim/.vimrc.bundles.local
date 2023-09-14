@@ -10,7 +10,7 @@ Plugin 'shime/vim-livedown'
 
 " Vim fcitx
 if match(s:uname, "Darwin") == 0
-  Plugin 'CodeFalling/fcitx-vim-osx'
+  " Plugin 'CodeFalling/fcitx-vim-osx'
 elseif match(s:uname, "Linux") == 0
   Bundle 'vim-scripts/fcitx.vim'
 endif
@@ -55,7 +55,7 @@ Plugin 'vim-scripts/Toggle-NERDTree-width'
 " Plugin 'aklt/plantuml-syntax'
 
 " VIM Table Mode
-" Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " " HTML {
     " " if count(g:spf13_bundle_groups, 'ihtml')
@@ -111,3 +111,5 @@ Plugin 'ErichDonGubler/vim-sublime-monokai'
 " sql
 Plugin 'SQLUtilities'
 
+" autoformat
+Plugin 'vim-autoformat/vim-autoformat'

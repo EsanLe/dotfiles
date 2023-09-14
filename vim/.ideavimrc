@@ -54,3 +54,6 @@ set clipboard+=ideaput
 " without yanking it
 vnoremap p "_dP
 
+" disable bell
+set visualbell
+set noerrorbells
