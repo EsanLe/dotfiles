@@ -359,3 +359,6 @@ set nospell
 " autocmd FileType mediawiki,tex,md,markdown LongLines
 
 let g:autoformat_autoindent = 2
+
+" autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup

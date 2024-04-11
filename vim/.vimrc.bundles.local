@@ -113,3 +113,6 @@ Plugin 'SQLUtilities'
 
 " autoformat
 Plugin 'vim-autoformat/vim-autoformat'
+
+" autosave
+Plugin '907th/vim-auto-save'
