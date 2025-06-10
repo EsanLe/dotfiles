@@ -77,7 +77,7 @@ Plugin 'dhruvasagar/vim-table-mode'
 " " Plugin 'will133/vim-dirdiff'
 
 " " deoplete
-Plugin 'Shougo/deoplete.nvim'
+" Plugin 'Shougo/deoplete.nvim'
 " " Plugin 'neoclide/coc.nvim'
 
 " " dbext.vim
@@ -107,9 +107,6 @@ Plugin 'ErichDonGubler/vim-sublime-monokai'
 
 " Comrade
 " Plugin 'beeender/Comrade'
-
-" sql
-Plugin 'SQLUtilities'
 
 " autoformat
 Plugin 'vim-autoformat/vim-autoformat'
